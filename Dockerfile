@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 ARG PERSONAL_ACCESS_TOKEN
 ARG HOST=https://github.com
@@ -13,7 +13,7 @@ ENV RUNNER_LABELS="self-hosted,Linux,X64"
 ENV RUNNER_WORKDIR=_work
 
 RUN apt update && \
-    apt install -y dotnet-sdk-7.0 curl sudo openssh-clients && \
+    apt install -y dotnet-sdk-6.0 curl sudo openssh-clients && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
